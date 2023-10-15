@@ -13,18 +13,18 @@ jobs:
     steps:
       - name: get version
         shell: bash
-        if: env.VERSION == ''
+        if: env.APP_VERSION == ''
         run:
-          echo "VERSION=${GITHUB_REF#refs/tags/}" >> $GITHUB_ENV
-          echo "${{ env.VERSION }}"
+          echo "APP_VERSION=${GITHUB_REF#refs/tags/}" >> $GITHUB_ENV
+          echo "${{ env.APP_VERSION }}"
       - name: create release
         id: release
         uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: ${{ env.VERSION }}
-          release_name: ${{ env.VERSION }}
+          tag_name: ${{ env.APP_VERSION }}
+          release_name: ${{ env.APP_VERSION }}
 
   build:
     name: build

@@ -14,7 +14,7 @@ jobs:
       - name: get version
         shell: bash
         if: env.APP_VERSION == ''
-        run:
+        run: |
           echo "APP_VERSION=${GITHUB_REF#refs/tags/}" >> $GITHUB_ENV
           echo "${{ env.APP_VERSION }}"
       - name: create release

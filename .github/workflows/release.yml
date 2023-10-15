@@ -67,11 +67,8 @@ jobs:
 
       - name: build binary
         run: |
-          if [ "${{ matrix.build }}" = "linux_aarch64" ]; then
-            cross build --release --target ${{ matrix.target}}
-          else
-            cargo build --release --target ${{ matrix.target}}
-          fi
+          cross build --release --target ${{ matrix.target}}
+
       - name: build archive
         shell: bash
         run: |

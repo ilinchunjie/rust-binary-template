@@ -9,7 +9,7 @@ jobs:
     name: create-release
     runs-on: ubuntu-22.04
     outputs:
-      upload_url: ${{ steps.release.outpus.upload_url }}
+      upload_url: ${{ steps.release.outputs.upload_url }}
     steps:
       - name: get version
         shell: bash
